@@ -1,5 +1,6 @@
 # CaixaBank.-Un mundo detrás de la estrella.-
 Análisis de CaixaBank entre 2007 y 2025 con datos del banco, INE, Banco de España y BCE y propias fuentes de CaixaBank
+![Portada](images/05_portada.png)
 
 # CaixaBank en Power BI: estructura, ingresos y ciclo económico
 
@@ -17,6 +18,7 @@ Analizar la evolución y la estructura de **CaixaBank** entre 2007 y 2025, combi
 
 ### 1. Contexto 2025
 Radiografía del banco: plantilla total y reparto entre hombres y mujeres, oficinas, cajeros, número de clientes y coste de personal anual. Todo en tarjetas, con las cifras monetarias en millones de euros (M€).
+![Contexto 2025](images/01_Indicadores_contexto_2025.png)
 
 ### 2. Ingresos operativos
 Los **12.419 M€** ingresados en 2025 se descomponen en:
