@@ -1,6 +1,6 @@
 # CaixaBank.-Un mundo detrás de la estrella.-
 Análisis de CaixaBank entre 2007 y 2025 con datos del banco, INE, Banco de España y BCE y propias fuentes de CaixaBank
-![Portada](images/05_portada.png)
+![Portada](images/06_portada.png)
 
 # CaixaBank en Power BI: estructura, ingresos y ciclo económico
 
@@ -18,6 +18,7 @@ Analizar la evolución y la estructura de **CaixaBank** entre 2007 y 2025, combi
 
 ### 1. Contexto 2025
 Radiografía del banco: plantilla total y reparto entre hombres y mujeres, oficinas, cajeros, número de clientes y coste de personal anual. Todo en tarjetas, con las cifras monetarias en millones de euros (M€).
+
 ![Contexto 2025](images/01_Indicadores_contexto_2025.png)
 
 ### 2. Ingresos operativos
@@ -30,9 +31,17 @@ Los **12.419 M€** ingresados en 2025 se descomponen en:
 
 Incluye un **gráfico de cascada** con la composición del total en 2025 y un **gráfico de columnas apiladas al 100 %** que compara el peso de cada fuente entre 2021 y 2025.
 
+![Ingresos operativos](images/02_Ingresos_operativos.png)
+
 ### 3. Tendencia en ciclos económicos
+![Tendencia en ciclos económicos](images/03_PIB_crecimiento_por_ciclos.png)
 **Gráfico de dispersión** que relaciona el crecimiento del PIB de España con el crecimiento interanual de los ingresos del banco. Cada punto es un año; el color indica la fase del ciclo (crisis 2008-2013, recuperación, Covid y post-covid) y el tamaño refleja el volumen de ingresos. El año 2021 se anota aparte porque su salto responde a la integración de Bankia.
 
+### Obra social de "la Caixa"
+
+![Obra social](images/04_Obra_social_La_Caixa.png)
+
+**Más ingresos, menos obra social.** Tomando 2023 como base 100, los ingresos operativos de CaixaBank crecen un **11%** hasta 2025, impulsados por la subida de tipos de interés, mientras que la aportación a la obra social cae un **29%** (de 8,9 a 6,3 M€). Como resultado, el esfuerzo social relativo (aportación por cada 1.000 € ingresados) se reduce un **36%** en solo dos años.
 ## Conclusiones preliminares
 
 - El margen de intereses aporta cerca del **86 %** de los ingresos y ha ganado peso desde 2021, por lo que el banco es más sensible a la evolución de los tipos de interés.
