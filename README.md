@@ -1,5 +1,6 @@
 # CaixaBank.-Un mundo detrás de la estrella.-
 Análisis de CaixaBank entre 2007 y 2025 con datos del banco, INE, Banco de España y BCE y propias fuentes de CaixaBank
+
 ![Portada](images/06_portada.png)
 
 ##  Hallazgos clave
