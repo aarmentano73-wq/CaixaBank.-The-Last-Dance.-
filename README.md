@@ -37,11 +37,60 @@ Incluye un **gráfico de cascada** con la composición del total en 2025 y un **
 ![Tendencia en ciclos económicos](images/03_PIB_crecimiento_por_ciclos.png)
 **Gráfico de dispersión** que relaciona el crecimiento del PIB de España con el crecimiento interanual de los ingresos del banco. Cada punto es un año; el color indica la fase del ciclo (crisis 2008-2013, recuperación, Covid y post-covid) y el tamaño refleja el volumen de ingresos. El año 2021 se anota aparte porque su salto responde a la integración de Bankia.
 
-### Obra social de "la Caixa"
+### 4. Obra social de "la Caixa"
 
 ![Obra social](images/04_Obra_social_La_Caixa.png)
 
 **Más ingresos, menos obra social.** Tomando 2023 como base 100, los ingresos operativos de CaixaBank crecen un **11%** hasta 2025, impulsados por la subida de tipos de interés, mientras que la aportación a la obra social cae un **29%** (de 8,9 a 6,3 M€). Como resultado, el esfuerzo social relativo (aportación por cada 1.000 € ingresados) se reduce un **36%** en solo dos años.
+
+### 5. Predicción modelo Holt-Winters
+
+
+## Resumen
+
+- **Datos:** 42 trimestres (2016T1 a 2026T2) extraídos de los Excel de resultados trimestrales de CaixaBank.
+- **Problema:** en 2021 las comisiones saltan de 659 a 981 M€ (+49 %). No es crecimiento real, sino un cambio de perímetro por la integración de Bankia, y un modelo lo confundiría con tendencia.
+- **Solución:** se calcula un factor de ajuste (K = 1,546) y se multiplica el histórico anterior a 2021T2, de modo que la serie queda en la escala real y actual.
+- **Modelo elegido:** Holt-Winters **sin tendencia**, con estacionalidad de 4 trimestres. Mejora un 21 % el error de la referencia simple.
+- **Resultado:** nivel estable de unos 1.040 M€ por trimestre, con un patrón estacional que se repite cada año.
+
+## Metodología
+
+1. **Extracción y limpieza.** Un script lee la fila "Comisiones netas" de cada Excel (cada archivo trae solo 5 trimestres), los junta y, si un trimestre aparece en varios archivos, conserva la cifra del más reciente, porque el banco reexpresa datos históricos. El script descarta lecturas absurdas y avisa de saltos o discrepancias entre archivos.
+2. **Exploración.** Gráfico de la serie y descomposición en tendencia, estacionalidad y residuo. Se detecta el salto de Bankia (y uno menor por BPI en 2017).
+3. **Ajuste por Bankia.** El factor es la media de los 4 trimestres posteriores a la fusión entre la de los 4 anteriores:
+
+   ```
+   K = media(2T21 … 1T22) / media(2T20 … 1T21) = 1,546
+   ```
+
+   Se sube el histórico anterior en lugar de bajar los datos posteriores, para que la previsión salga directamente en la escala real.
+4. **Evaluación.** Se apartan los últimos 4 trimestres como prueba y se comparan tres modelos con MAE y MAPE.
+5. **Previsión.** Se reentrena el mejor modelo con todos los datos y se predicen 8 trimestres con un rango aproximado del 95 %.
+
+## Resultados
+
+Error en los 4 trimestres de prueba:
+
+| Modelo | MAE (M€) | MAPE (%) |
+|---|---|---|
+| Naive estacional (referencia) | 55,1 | 5,39 |
+| Holt-Winters con tendencia amortiguada | 58,6 | 5,68 |
+| **Holt-Winters sin tendencia** | **43,6** | **4,21** |
+
+Previsión por trimestre del año (se repite de 2026T3 a 2028T2):
+
+| Trimestre | Previsión (M€) | Mínimo | Máximo |
+|---|---|---|---|
+| 3.er trimestre | 1.027,0 | 939,1 | 1.114,8 |
+| 4.º trimestre | 1.064,9 | 977,0 | 1.152,7 |
+| 1.er trimestre | 1.024,9 | 937,1 | 1.112,8 |
+| 2.º trimestre | 1.044,5 | 956,7 | 1.132,4 |
+
+![Predicción 2028](images/07_prediccion_Holt_Winters.png)
+
+
+El histórico anterior a 2021T2 que aparece en los gráficos está **ajustado por Bankia** (multiplicado por K), por lo que no coincide con las cifras publicadas por el banco.
 ## Conclusiones preliminares
 
 - El margen de intereses aporta cerca del **86 %** de los ingresos y ha ganado peso desde 2021, por lo que el banco es más sensible a la evolución de los tipos de interés.
@@ -71,7 +120,7 @@ Incluye un **gráfico de cascada** con la composición del total en 2025 y un **
 - Medidas DAX: variación interanual, composición porcentual, saldos con `LASTDATE`, `REMOVEFILTERS` y formato dinámico.
 - Columnas calculadas (por ejemplo, la fase del ciclo económico).
 - Visualizaciones: tarjetas, cascada, columnas apiladas, dispersión con leyenda y tamaño.
-- Diseño coherente con la identidad del banco: fondo oscuro, paleta azul y amarillo y unidades siempre en M€.
+- Diseño: fondo oscuro, paleta azul y amarillo y unidades siempre en M€.
 
 ## Próximos pasos
 
