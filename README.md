@@ -153,3 +153,16 @@ Previsión por trimestre del año (se repite de 2026T3 a 2028T2):
 - Incorporar selector de año y variación interanual en las tarjetas.
 - Analizar el efecto de la integración de Bankia con más detalle.
 
+  ## Archivos del repositorio
+
+| Archivo | Contenido |
+|---|---|
+| `final project.pbix` | Informe de Power BI (requiere Power BI Desktop) |
+| `final project pbix.pdf` | Capturas Dashboards de Power BI en PDF |
+| `CaixaBank.pdf` | Informe del proyecto para It Academy en PDF |
+| `Project final power point.pdf` | Presentación del proyecto |
+| `Holt Winters.ipynb` | Notebook con la predicción de comisiones |
+| `extraer_comisiones.py` | Script de extracción y limpieza de los datos trimestrales |
+| `data/` | Datos de origen (CaixaBank, INE, Banco de España, BCE/Eurostat) |
+| `images/` | Capturas usadas en este README |
+
