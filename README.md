@@ -2,7 +2,7 @@
 
 *CaixaBank en Power BI: estructura, ingresos y ciclo económico (2007-2025)*
 
-Análisis de CaixaBank entre 2007 y 2025 con datos propios del banco, INE, Banco de España, BCE y Eurostat.
+Análisis de CaixaBank entre 2007 y 2025 con datos propios del banco, INE, Banco de España, BCE.
 
 ![Portada](images/06_portada.png)
 
@@ -10,7 +10,7 @@ Análisis de CaixaBank entre 2007 y 2025 con datos propios del banco, INE, Banco
 
 - **Dependencia de los tipos de interés:** el margen de intereses genera el **86 %** de los ingresos operativos de 2025; las comisiones aportan el 11,2 %.
 - **Más ingresos, menos obra social:** entre 2023 y 2025 los ingresos crecen un **11 %**, mientras que la aportación a la obra social cae un **29 %**.
-- **Tipos y fusiones por encima del ciclo:** los ingresos responden más a los tipos de interés y a las integraciones (Banca Cívica, Bankia) que al crecimiento del PIB.
+- **Tipos y fusiones por encima del ciclo:** los ingresos responden más a los tipos de interés y a la integracion (Bankia) que al crecimiento del PIB.
 - **Predicción de comisiones:** el modelo Holt-Winters (MAPE **4,2 %**) mejora un **21 %** a la referencia naive y proyecta unos **1.040 M€ por trimestre** hasta 2028.
 
 ## Objetivo
@@ -44,13 +44,13 @@ Incluye un **gráfico de cascada** con la composición del total en 2025 y un **
 
 ### 3. Tendencia en ciclos económicos
 
-**Gráfico de dispersión** que relaciona el crecimiento del PIB de España con el crecimiento interanual de los ingresos del banco. Cada punto es un año, y el color indica la fase del ciclo: crisis (2008-2013), recuperación, Covid, integración de Bankia y post-covid. El año 2021 aparece separado porque su salto responde a la integración de Bankia y no al ciclo económico.
+**Gráfico de dispersión** que relaciona el crecimiento del PIB de España con el crecimiento interanual de los ingresos del banco. Cada punto es un año, y el color indica la fase del ciclo: crisis (2008-2013), recuperación, Covid, integración de Bankia y post-covid. El año 2021 aparece separado porque su salto responde a la integración de Bankia y no al ciclo económico (outlier).
 
 ![Tendencia en ciclos económicos](images/03_PIB_crecimiento_por_ciclos.png)
 
 ### 4. Obra social de "la Caixa"
 
-**Más ingresos, menos obra social.** Tomando 2023 como base 100, los ingresos operativos de CaixaBank crecen un **11 %** hasta 2025, mientras que la aportación a la obra social cae un **29 %** (de 8,9 a 6,3 M€). Como resultado, el esfuerzo social relativo (aportación por cada 1.000 € ingresados) se reduce un **36 %** en solo dos años.
+**Más ingresos, menos obra social.** Tomando 2023 como base 100, los ingresos operativos de CaixaBank crecen un **11 %** hasta 2025, mientras que la aportación a la obra social cae un **29 %** (de 8,9 a 6,3 M€). Como resultado, la aportación por cada 1.000 € ingresados se reduce un **36 %** en solo dos años.
 
 ![Obra social](images/04_Obra_social_La_Caixa.png)
 
