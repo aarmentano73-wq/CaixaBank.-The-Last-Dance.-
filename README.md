@@ -52,6 +52,8 @@ Incluye un **gráfico de cascada** con la composición del total en 2025 y un **
 
 **Modelo:** esquema en estrella con una tabla `Calendario` como eje común. Las tablas de hechos se relacionan con ella en sentido uno a varios, lo que permite filtrar todo con un único año y cruzar datos del banco con datos macroeconómicos.
 
+![Modelo](images/05_modelo.png)
+
 ## Técnicas utilizadas
 
 - Limpieza y transformación de datos con Power Query.
