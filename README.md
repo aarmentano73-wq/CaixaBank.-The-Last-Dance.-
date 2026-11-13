@@ -2,9 +2,16 @@
 Análisis de CaixaBank entre 2007 y 2025 con datos del banco, INE, Banco de España y BCE y propias fuentes de CaixaBank
 ![Portada](images/06_portada.png)
 
+##  Hallazgos clave
+
+- **Dependencia de los tipos de interés:** el margen de intereses genera el **86%** de los ingresos operativos de 2025; las comisiones aportan el 11,2%.
+- **Más ingresos, menos obra social:** entre 2023 y 2025 los ingresos crecen un **11%**, mientras que la aportación a la obra social cae un **29%**.
+- **Tipos y fusiones por encima del ciclo:** los ingresos responden más a los tipos de interés y a las integraciones (Banca Cívica, Bankia) que al crecimiento del PIB.
+- **Predicción de comisiones:** el modelo Holt-Winters (MAPE **4,2%**) mejora un **21%** al baseline naive y proyecta unos **1.040 M€ por trimestre** hasta 2028.
+
 # CaixaBank en Power BI: estructura, ingresos y ciclo económico
 
-> **Estado del proyecto: en desarrollo.** Esta es una primera versión. Quedan por explorar muchas más líneas de análisis (ver [Próximos pasos](#próximos-pasos)).
+ ([Próximos pasos](#próximos-pasos)).
 
 ## Objetivo
 
@@ -45,15 +52,6 @@ Incluye un **gráfico de cascada** con la composición del total en 2025 y un **
 
 ### 5. Predicción modelo Holt-Winters
 
-
-## Resumen
-
-- **Datos:** 42 trimestres (2016T1 a 2026T2) extraídos de los Excel de resultados trimestrales de CaixaBank.
-- **Problema:** en 2021 las comisiones saltan de 659 a 981 M€ (+49 %). No es crecimiento real, sino un cambio de perímetro por la integración de Bankia, y un modelo lo confundiría con tendencia.
-- **Solución:** se calcula un factor de ajuste (K = 1,546) y se multiplica el histórico anterior a 2021T2, de modo que la serie queda en la escala real y actual.
-- **Modelo elegido:** Holt-Winters **sin tendencia**, con estacionalidad de 4 trimestres. Mejora un 21 % el error de la referencia simple.
-- **Resultado:** nivel estable de unos 1.040 M€ por trimestre, con un patrón estacional que se repite cada año.
-
 ## Metodología
 
 1. **Extracción y limpieza.** Un script lee la fila "Comisiones netas" de cada Excel (cada archivo trae solo 5 trimestres), los junta y, si un trimestre aparece en varios archivos, conserva la cifra del más reciente, porque el banco reexpresa datos históricos. El script descarta lecturas absurdas y avisa de saltos o discrepancias entre archivos.
@@ -91,6 +89,15 @@ Previsión por trimestre del año (se repite de 2026T3 a 2028T2):
 
 
 El histórico anterior a 2021T2 que aparece en los gráficos está **ajustado por Bankia** (multiplicado por K), por lo que no coincide con las cifras publicadas por el banco.
+
+## Resumen
+
+- **Datos:** 42 trimestres (2016T1 a 2026T2) extraídos de los Excel de resultados trimestrales de CaixaBank.
+- **Problema:** en 2021 las comisiones saltan de 659 a 981 M€ (+49 %). No es crecimiento real, sino un cambio de perímetro por la integración de Bankia, y un modelo lo confundiría con tendencia.
+- **Solución:** se calcula un factor de ajuste (K = 1,546) y se multiplica el histórico anterior a 2021T2, de modo que la serie queda en la escala real y actual.
+- **Modelo elegido:** Holt-Winters **sin tendencia**, con estacionalidad de 4 trimestres. Mejora un 21 % el error de la referencia simple.
+- **Resultado:** nivel estable de unos 1.040 M€ por trimestre, con un patrón estacional que se repite cada año.
+  
 ## Conclusiones preliminares
 
 - El margen de intereses aporta cerca del **86 %** de los ingresos y ha ganado peso desde 2021, por lo que el banco es más sensible a la evolución de los tipos de interés.
